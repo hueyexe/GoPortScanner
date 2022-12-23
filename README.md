@@ -18,7 +18,7 @@ To use the port scanner, follow these steps:
 ## Example (Windows)
 ```
 main.exe --hostname scanme.nmap.org --start-port 1 --end-port 100 --timeout 1s 
-Scanning ports 1 to 65535 on scanme.nmap.org
+Scanning ports 1 to 100 on scanme.nmap.org
 scanme.nmap.org:22 is open (service: SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13)
 scanme.nmap.org:80 is open
 Scan complete.
