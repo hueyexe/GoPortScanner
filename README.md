@@ -15,20 +15,16 @@ To use the port scanner, follow these steps:
 6. When prompted, enter the start and end of the port range you want to scan.
 7. The port scanner will scan the specified ports and print a message for each open port it finds. When the scan is complete, it will display the total number of open and closed ports, and the time elapsed.
 
-## Example
-Here is an example of the scanner in action:
+## Example (Windows)
 ```
-$ ./port-scanner
-Enter hostname: example.com
-Enter start of port range: 1
-Enter end of port range: 100
+main.exe --hostname example.com --start-port 1 --end-port 100 --timeout 1s
 Scanning ports 1 to 100 on example.com
-example.com:22 is open
-example.com:80 is open
+example.com:22
+example.com:80
 Scan complete.
 Open ports: 2
 Closed ports: 98
-Total time elapsed: 2.475722ms
+Total time elapsed: 1.0063365s
 ```
 In this example, the program scanned ports 1 to 100 on the host example.com, and found that ports 22 (SSH) and 80 (HTTP) are open.
 
