@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net"
 	"os"
@@ -10,33 +11,19 @@ import (
 )
 
 func main() {
-	// Get the hostname the user
-	fmt.Print("Enter hostname: ")
+	// Define the command-line flags
 	var hostname string
-	fmt.Scanln(&hostname)
-
-	// Get the port range from user
-	fmt.Print("Enter start of port range: ")
-	var startPortStr string
-	fmt.Scanln(&startPortStr)
-	startPort, err := strconv.Atoi(startPortStr)
-	if err != nil {
-		fmt.Println("Invalid port number:", startPortStr)
-		os.Exit(1)
-	}
-
-	fmt.Print("Enter end of port range: ")
-	var endPortStr string
-	fmt.Scanln(&endPortStr)
-	endPort, err := strconv.Atoi(endPortStr)
-	if err != nil {
-		fmt.Println("Invalid port number:", endPortStr)
-		os.Exit(1)
-	}
+	var startPort, endPort int
+	var timeout time.Duration
+	flag.StringVar(&hostname, "hostname", "", "The hostname or IP address to scan")
+	flag.IntVar(&startPort, "start-port", 1, "The start of the port range to scan")
+	flag.IntVar(&endPort, "end-port", 65535, "The end of the port range to scan")
+	flag.DurationVar(&timeout, "timeout", time.Second, "The timeout for connection attempts")
+	flag.Parse()
 
 	// Validate the port range
 	if startPort > endPort {
-		fmt.Println("Invalid port range:", startPortStr, "-", endPortStr)
+		fmt.Println("Invalid port range:", startPort, "-", endPort)
 		os.Exit(1)
 	}
 
@@ -56,7 +43,7 @@ func main() {
 		go func(port int) {
 			defer wg.Done()
 			address := hostname + ":" + strconv.Itoa(port)
-			conn, err := net.Dial("tcp", address)
+			conn, err := net.DialTimeout("tcp", address, timeout)
 			if err == nil {
 				conn.Close()
 				fmt.Println(address, "is open")
