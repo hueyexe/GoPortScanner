@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"net"
@@ -45,8 +46,13 @@ func main() {
 			address := hostname + ":" + strconv.Itoa(port)
 			conn, err := net.DialTimeout("tcp", address, timeout)
 			if err == nil {
-				conn.Close()
-				fmt.Println(address, "is open")
+				defer conn.Close()
+				banner, err := bufio.NewReader(conn).ReadString('\n')
+				if err == nil {
+					fmt.Println(address, "is open (service:", banner, ")")
+				} else {
+					fmt.Println(address, "is open")
+				}
 				openPorts++
 			} else {
 				closedPorts++
