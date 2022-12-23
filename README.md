@@ -23,7 +23,7 @@ scanme.nmap.org:22 is open (service: SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13)
 scanme.nmap.org:80 is open
 Scan complete.
 Open ports: 2
-Closed ports: 65521
+Closed ports: 100
 Total time elapsed: 13.0063365s
 ```
 In this example, the program scanned ports 1 to 100 on the host scanme.nmap.org, and found that ports 22 (SSH) and 80 (HTTP) are open.
