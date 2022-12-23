@@ -17,16 +17,16 @@ To use the port scanner, follow these steps:
 
 ## Example (Windows)
 ```
-main.exe --hostname example.com --start-port 1 --end-port 100 --timeout 1s
-Scanning ports 1 to 100 on example.com
-example.com:22
-example.com:80
+main.exe --hostname scanme.nmap.org --start-port 1 --end-port 100 --timeout 1s 
+Scanning ports 1 to 65535 on scanme.nmap.org
+scanme.nmap.org:22 is open (service: SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13)
+scanme.nmap.org:80 is open
 Scan complete.
 Open ports: 2
-Closed ports: 98
-Total time elapsed: 1.0063365s
+Closed ports: 65521
+Total time elapsed: 13.0063365s
 ```
-In this example, the program scanned ports 1 to 100 on the host example.com, and found that ports 22 (SSH) and 80 (HTTP) are open.
+In this example, the program scanned ports 1 to 100 on the host scanme.nmap.org, and found that ports 22 (SSH) and 80 (HTTP) are open.
 
 ## Permission first
 The program is designed to be fast and efficient, but be aware that port scanning can generate a lot of network traffic and may be perceived as a malicious activity. Use caution when running the port scanner, and obtain permission before scanning any hosts that you do not own, control or otherwise have permission to scan.
