@@ -10,11 +10,12 @@ import (
 )
 
 func main() {
-	// Get the hostname and port range from the user
+	// Get the hostname the user
 	fmt.Print("Enter hostname: ")
 	var hostname string
 	fmt.Scanln(&hostname)
 
+	// Get the port range from user
 	fmt.Print("Enter start of port range: ")
 	var startPortStr string
 	fmt.Scanln(&startPortStr)
