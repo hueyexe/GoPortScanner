@@ -3,7 +3,7 @@
 This is a simple tool that allows you to scan a range of ports on a specified host to see which ones are open. It is written in Go, a fast and efficient programming language that is easy to learn (and fun to use).
 
 ## Prerequisites
-Before you can use the port scanner, you will need to have Go installed on your computer. If you don't already have Go installed, you can download it from the Go website. Follow the installation instructions for your operating system.
+Before you can use the port scanner, you will need to have Go installed on your computer. If you don't already have it installed, you can download it from the [Go website](https://go.dev/dl/). Follow the installation instructions for your operating system.
 
 ## Usage
 To use the port scanner, follow these steps:
