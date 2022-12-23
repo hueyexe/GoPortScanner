@@ -1,3 +1,4 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/rancmd/goportscanner)](https://goreportcard.com/report/github.com/rancmd/goportscanner)
 # GoPortScanner
 This is a simple tool that allows you to scan a range of ports on a specified host to see which ones are open. It is written in Go, a fast and efficient programming language that is easy to learn (and fun to use).
 
