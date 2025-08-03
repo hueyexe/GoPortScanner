@@ -38,13 +38,13 @@ type Result struct {
 
 // ScanSummary contains the overall scan results
 type ScanSummary struct {
-	Hostname    string    `json:"hostname"`
-	StartPort   int       `json:"start_port"`
-	EndPort     int       `json:"end_port"`
-	OpenPorts   int       `json:"open_ports"`
-	ClosedPorts int       `json:"closed_ports"`
-	TotalTime   string    `json:"total_time"`
-	Results     []Result  `json:"results"`
+	Hostname    string   `json:"hostname"`
+	StartPort   int      `json:"start_port"`
+	EndPort     int      `json:"end_port"`
+	OpenPorts   int      `json:"open_ports"`
+	ClosedPorts int      `json:"closed_ports"`
+	TotalTime   string   `json:"total_time"`
+	Results     []Result `json:"results"`
 }
 
 // Scanner represents the port scanner
@@ -58,7 +58,7 @@ type Scanner struct {
 // NewScanner creates a new scanner instance
 func NewScanner(config Config) *Scanner {
 	return &Scanner{
-		config: config,
+		config:  config,
 		results: make([]Result, 0),
 	}
 }
@@ -78,7 +78,7 @@ func (s *Scanner) Scan() error {
 	}
 
 	if s.config.Verbose {
-		fmt.Printf("Starting scan of %s (ports %d-%d) with %d workers\n", 
+		fmt.Printf("Starting scan of %s (ports %d-%d) with %d workers\n",
 			s.config.Hostname, s.config.StartPort, s.config.EndPort, s.config.Workers)
 	}
 
@@ -147,7 +147,7 @@ func (s *Scanner) scanPort(port int, timeout time.Duration) Result {
 	}
 
 	address := fmt.Sprintf("%s:%d", s.config.Hostname, port)
-	
+
 	// Create context with timeout
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()

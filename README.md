@@ -29,7 +29,7 @@ A fast, efficient, and feature-rich port scanner written in Go. Designed for sec
 ```bash
 git clone https://github.com/rancmd/goportscanner.git
 cd goportscanner
-go build -o goportscanner cmd/goportscanner/main.go
+go build -o goportscanner cmd/main.go
 ```
 
 #### Using Go Install
@@ -173,7 +173,13 @@ goportscanner -h remote.com -t 2s
 
 ### Legal Disclaimer
 
-This tool is provided for educational and authorized security testing purposes only. Users are responsible for ensuring they have proper authorization before scanning any systems. The authors are not responsible for any misuse of this software.
+This tool is provided for educational and authorized security testing purposes only. Users are responsible for ensuring they have proper authorization before scanning any systems. **Unauthorized port scanning may violate local laws and regulations.** The authors disclaim all liability for any misuse of this software.
+
+**By using this software, you agree to:**
+- Only scan systems you own or have explicit written permission to test
+- Comply with all applicable local, state, and federal laws
+- Use reasonable rate limiting to avoid disrupting target systems
+- Accept full responsibility for your actions
 
 ## Development
 
@@ -183,7 +189,7 @@ This tool is provided for educational and authorized security testing purposes o
 git clone https://github.com/rancmd/goportscanner.git
 cd goportscanner
 go mod download
-go build -o goportscanner cmd/goportscanner/main.go
+go build -o goportscanner cmd/main.go
 ```
 
 ### Running Tests
@@ -202,19 +208,6 @@ golangci-lint run
 gosec ./...
 ```
 
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -222,15 +215,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Inspired by tools like `nmap` and `masscan`
-- Built with the excellent Go standard library
+- Built with Go standard library
 - Uses [Cobra](https://github.com/spf13/cobra) for CLI functionality
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/rancmd/goportscanner/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rancmd/goportscanner/discussions)
-- **Security**: Please report security issues privately to the maintainers
-
----
-
-**Remember**: Use this tool responsibly and only on systems you own or have explicit permission to test.

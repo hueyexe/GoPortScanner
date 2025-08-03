@@ -1,9 +1,6 @@
-# GoPortScanner Makefile
-# Provides common development and build tasks
-
 # Variables
 BINARY_NAME=goportscanner
-MAIN_PATH=cmd/goportscanner/main.go
+MAIN_PATH=cmd/main.go
 VERSION?=1.0.0
 BUILD_TIME=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
 GIT_COMMIT=$(shell git rev-parse --short HEAD)
@@ -151,7 +148,7 @@ release: clean build-all
 	cp $(BINARY_UNIX) release/$(BINARY_NAME)-linux-amd64
 	cp $(BINARY_WINDOWS) release/$(BINARY_NAME)-windows-amd64.exe
 	cp $(BINARY_DARWIN) release/$(BINARY_NAME)-darwin-amd64
-	cp README.md LICENSE CHANGELOG.md release/
+	cp README.md LICENSE release/
 
 # Create Docker image
 .PHONY: docker-build

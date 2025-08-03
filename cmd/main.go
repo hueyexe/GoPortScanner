@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rancmd/goportscanner/internal/scanner"
+	scanner "github.com/rancmd/goportscanner/internal"
 	"github.com/spf13/cobra"
 )
 
