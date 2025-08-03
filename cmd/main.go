@@ -37,7 +37,7 @@ Use responsibly and only scan systems you own or have permission to test.`,
 	}
 
 	// Add flags
-	rootCmd.Flags().StringVarP(&hostname, "hostname", "h", "", "Target hostname or IP address (required)")
+	rootCmd.Flags().StringVarP(&hostname, "hostname", "H", "", "Target hostname or IP address (required)")
 	rootCmd.Flags().IntVarP(&startPort, "start-port", "s", 1, "Start of port range")
 	rootCmd.Flags().IntVarP(&endPort, "end-port", "e", 1024, "End of port range")
 	rootCmd.Flags().StringVarP(&timeout, "timeout", "t", "1s", "Connection timeout (e.g., 1s, 500ms)")
@@ -51,16 +51,16 @@ Use responsibly and only scan systems you own or have permission to test.`,
 
 	// Add examples
 	rootCmd.Example = `  # Scan common ports on localhost
-  goportscanner -h localhost -s 1 -e 1024
+  goportscanner -H localhost -s 1 -e 1024
 
   # Scan specific ports with JSON output
-  goportscanner -h scanme.nmap.org -s 20 -e 25 -f json
+  goportscanner -H scanme.nmap.org -s 20 -e 25 -f json
 
   # Fast scan with more workers
-  goportscanner -h example.com -w 500 -t 500ms
+  goportscanner -H example.com -w 500 -t 500ms
 
   # Save results to file
-  goportscanner -h target.com -o results.txt`
+  goportscanner -H target.com -o results.txt`
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)

@@ -41,23 +41,23 @@ go install github.com/rancmd/goportscanner/cmd/goportscanner@latest
 
 ```bash
 # Scan common ports on localhost
-goportscanner -h localhost -s 1 -e 1024
+goportscanner -H localhost -s 1 -e 1024
 
 # Scan specific ports with JSON output
-goportscanner -h scanme.nmap.org -s 20 -e 25 -f json
+goportscanner -H scanme.nmap.org -s 20 -e 25 -f json
 
 # Fast scan with more workers
-goportscanner -h example.com -w 500 -t 500ms
+goportscanner -H example.com -w 500 -t 500ms
 
 # Save results to file
-goportscanner -h target.com -o results.txt
+goportscanner -H target.com -o results.txt
 ```
 
 ## Command Line Options
 
 | Flag | Short | Description | Default |
 |------|-------|-------------|---------|
-| `--hostname` | `-h` | Target hostname or IP address (required) | - |
+| `--hostname` | `-H` | Target hostname or IP address (required) | - |
 | `--start-port` | `-s` | Start of port range | 1 |
 | `--end-port` | `-e` | End of port range | 1024 |
 | `--timeout` | `-t` | Connection timeout (e.g., 1s, 500ms) | 1s |
@@ -70,7 +70,7 @@ goportscanner -h target.com -o results.txt
 
 ### Basic Port Scan
 ```bash
-goportscanner -h scanme.nmap.org -s 1 -e 100
+goportscanner -H scanme.nmap.org -s 1 -e 100
 ```
 
 **Output:**
@@ -91,7 +91,7 @@ scanme.nmap.org:80 (HTTP) - HTTP/1.1 200 OK
 
 ### JSON Output
 ```bash
-goportscanner -h localhost -s 80 -e 90 -f json
+goportscanner -H localhost -s 80 -e 90 -f json
 ```
 
 **Output:**
@@ -117,12 +117,12 @@ goportscanner -h localhost -s 80 -e 90 -f json
 
 ### CSV Output
 ```bash
-goportscanner -h example.com -s 20 -e 25 -f csv -o scan_results.csv
+goportscanner -H example.com -s 20 -e 25 -f csv -o scan_results.csv
 ```
 
 ### High-Speed Scanning
 ```bash
-goportscanner -h target.com -w 1000 -t 200ms -s 1 -e 65535
+goportscanner -H target.com -w 1000 -t 200ms -s 1 -e 65535
 ```
 
 ## Service Detection
@@ -142,10 +142,10 @@ Adjust the number of workers based on your network capacity and target system:
 
 ```bash
 # Conservative scanning (100 workers)
-goportscanner -h target.com -w 100
+goportscanner -H target.com -w 100
 
 # Aggressive scanning (1000 workers)
-goportscanner -h target.com -w 1000
+goportscanner -H target.com -w 1000
 ```
 
 ### Timeout Settings
@@ -153,10 +153,10 @@ Optimize timeout values for your network conditions:
 
 ```bash
 # Fast local network
-goportscanner -h localhost -t 100ms
+goportscanner -H localhost -t 100ms
 
 # Slower internet connection
-goportscanner -h remote.com -t 2s
+goportscanner -H remote.com -t 2s
 ```
 
 ## Security and Legal Considerations
